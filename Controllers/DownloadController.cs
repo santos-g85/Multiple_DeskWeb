@@ -9,24 +9,13 @@ namespace Multiple_Desk.Controllers
     public class DownloadController : Controller
     {
         private readonly ILogger<DownloadController> _logger;
-        private readonly IUserService _userService;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly IConfiguration _config;
         private FileService _fileService;
-        private readonly IValidator<UserRegisterDto> _userRegisterValidator;
         public DownloadController(ILogger<DownloadController> logger,
-            IUserService userService,
-             IWebHostEnvironment hostEnvironment,
-            IConfiguration configuration,
             FileService fileService,
             IValidator<UserRegisterDto> validtor)
         {
             _logger = logger;
-            _userService = userService;
-            _webHostEnvironment = hostEnvironment;
-            _config = configuration;
             _fileService = fileService;
-            _userRegisterValidator = validtor;
         }
         
         public IActionResult Index()
@@ -38,11 +27,14 @@ namespace Multiple_Desk.Controllers
         public async Task<IActionResult> FileDownload()
         {
             var file = await _fileService.GetDownloadableFileAsync();
+            _logger.LogInformation("Downloaded file !");
             if (file is null)
             {
                 TempData["Error"] = "File could not be found.";
+                _logger.LogWarning("file not found!");
                 return RedirectToAction(nameof(Index));
             }
+            _logger.LogInformation("File returned to the user!");
             return file;
         }
         

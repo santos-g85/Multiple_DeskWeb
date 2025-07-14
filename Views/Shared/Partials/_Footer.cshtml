@@ -1,10 +1,10 @@
 ﻿@* style="background-color:#4A4B4F;" *@
-<footer class=" footer text-muted" style="background-color:#EEEEEE;">
+<footer class=" footer text-muted" style="background-color:#EEEEEE;min-height:300px; position: relative;">
     <div class="container p-4">
         <div class="row ">
 
             <div class="col-6 col-md-2  ">
-                <h6 class="fs-5">MultipleDesk</h6>
+                <h6 class="fs-5 custom-text-color">MultipleDesk</h6>
                 <ul class="list-unstyled">
                     <li>
                         <a asp-area="" asp-controller="About" asp-action="Index" class=" text-black text-decoration-none">Terms</a>
@@ -18,7 +18,7 @@
 
             <!-- Company -->
             <div class="col-6 col-md-2 ">
-                <h6 class="fs-5">Company</h6>
+                <h6 class="fs-5 custom-text-color">Company</h6>
                 <ul class="list-unstyled">
                     <li><a href="https://jooneli.com/" class="text-black text-decoration-none">About Us</a></li>
                     <li><a asp-area="" asp-controller="Contact" asp-action="Index" class="text-black text-decoration-none">Contact</a></li>
@@ -28,7 +28,7 @@
        
             <!-- News & Updates -->
             <div class="col-6 col-md-2 ">
-                <h6 class="fs-5">Downloads</h6>
+                <h6 class="fs-5 custom-text-color">Downloads</h6>
                 <ul class="list-unstyled">
                     <li><a asp-controller="Download" asp-action="Index" class="text-black text-decoration-none">For Windows</a></li>
                 </ul>
@@ -43,15 +43,25 @@
 
         </div>
 
-        <hr class="text-white">
         <!-- Bottom Bar -->
-        <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <p class="mb-0"><a class="text-black text-decoration-none">&copy; 2025</a> <span class="fw-bold"><a href="http://jooneli.com/" class="text-black text-decoration-none">Jooneli Inc</a></span></p>
-            <div>
-                <a href="https://www.facebook.com/profile.php?id=100063535842460" class="text-black me-3 h-100"><i class="bi bi-facebook fs-4"></i></a>
-                <a href="#" class="text-black me-3"><i class="bi bi-linkedin fs-4 h-100"></i></a>
-                <a href="#" class="text-black"><i class="bi bi-youtube fs-4 h-100"></i></a>
+        <div class="container-fluid py-3" style="position: absolute; bottom: 0; left: 0; right: 0;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="mb-0">
+                        <span class="text-black">&copy; 2025</span>
+                        <span class="fw-bold ms-1">
+                            <a href="http://multipledesk.com/" class="text-black text-decoration-none">Multiple Desk</a>
+                        </span>
+                    </p>
+                    <span class="text-muted">product of Jooneli Group</span>
+                    <div>
+                        <a href="https://www.facebook.com/profile.php?id=100063535842460" class="text-black me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-black me-3"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="#" class="text-black"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </footer>
