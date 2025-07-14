@@ -1,0 +1,9 @@
+﻿.hero-section {
+    background: linear-gradient(135deg, #FF9E2C,#F9A123);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #FF9E2C, #F9A123);
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}

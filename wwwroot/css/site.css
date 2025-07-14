@@ -31,3 +31,7 @@ custom-header {
         clip-path: none; /* Remove slant on mobile */
         border-radius: 8px;
     }
+}
+.custom-text-color {
+    color:#141d2b;
+}
