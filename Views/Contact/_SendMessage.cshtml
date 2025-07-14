@@ -1,0 +1,78 @@
+﻿@model Multiple_Desk.Models.Entities.MessagesModel
+
+<section class="py-5" id="contactFormSection" style="display:none;">
+    <div class="container w-auto" style="max-width:80%;">
+        <form asp-action="SendMessage" asp-controller="Contact">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name*" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name*" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input asp-for="Company" class="form-control" placeholder="Company" />
+                    <span asp-validation-for="Company" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input asp-for="Email" class="form-control" placeholder="Email*" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number*" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                
+               @*  <!-- Country Dropdown -->
+                <div class="col-md-6">
+                    <select id="countrySelect" name="Country" class="form-select" required>
+                        <option value="">Loading countries...</option>
+                    </select>
+                </div> *@
+
+                <!-- Message -->
+                <div class="col-12 mb-4">
+                    <textarea asp-for="Message" class="form-control" rows="4" placeholder="Please describe how we can support you"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-danger btn-lg rounded-pill px-4">
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["Success"] 
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}

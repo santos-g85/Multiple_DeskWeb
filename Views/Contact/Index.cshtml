@@ -1,0 +1,109 @@
+﻿@model Multiple_Desk.Models.Entities.MessagesModel
+
+<section>
+    <!-- Heading -->
+    <div class="row justify-content-center mb-4" style="background-color:#FF9E2C;">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 fw-bold text-white mb-3">
+                Get in Touch Today
+            </h1>
+            <p class="fw-semibold fs-4 mb-2">
+                Talk to our team
+            </p>
+            <p class="mb-2">
+                Need help choosing the right license, placing an order, or upgrading your existing license?
+            </p>
+           
+        </div>
+    </div>
+</section>
+<p class=" text-center">
+    Reach us anytime at <strong>+977 01-5153449</strong>
+</p>
+<section class="py-5 bg-light">
+    <div class="container">
+        <!-- Contact Cards -->
+        <div class="row justify-content-center g-4">
+            <!-- Call Us Card -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-lg contact-card">
+                    <div class="card-body text-white text-center p-4">
+                        <h3 class="h4 mb-3">Call us</h3>
+                        <p class="mb-4">
+                            <span class="d-block">Sunday – Friday</span>
+                            <strong>09:00 – 17:00 NPT (GMT+5:45)</strong>
+                        </p>
+                        <a href="tel:01-5153449" class="btn btn-outline-light rounded-pill px-4 fw-semibold">
+                            <i class="fas fa-phone me-2"></i> 01-5153449
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Us Card -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-lg contact-card">
+                    <div class="card-body text-white text-center p-4">
+                        <h3 class="h4 mb-3">Send us a message</h3>
+                        <p class="mb-4">
+                            <span class="d-block">Leave your queries</span>
+                            We'll respond within one business day
+                        </p>
+                        <button type="button"
+                                class="btn btn-outline-light rounded-pill px-4 fw-semibold"
+                                onclick="toggleContactForm()">
+                            <i class="fas fa-paper-plane me-2"></i> Write Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@await Html.PartialAsync("_SendMessage.cshtml", Model)
+
+<style>
+   .contact-card {
+    background-color: #FF9E2C;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+#countrySelect.form-select {
+    height: 2.2rem;
+    font-size: 0.9rem;
+}
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
+
+@if (TempData["ValidationError"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["ValidationError"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}

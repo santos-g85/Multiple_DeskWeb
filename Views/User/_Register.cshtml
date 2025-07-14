@@ -1,0 +1,148 @@
+﻿@model Multiple_Desk.Models.DTOs.UserRegisterDto
+
+<section class="py-5 bg-light">
+    <div class="container" style="max-width: 600px;">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="fw-bold mb-4 text-center text-danger">Create an Account For Free Download</h2>
+                <form asp-action="Register" asp-controller="User">
+                    <!-- First Name -->
+                    <div class="mb-3">
+                        <label class="form-label">First Name *</label>
+                        <input name="FirstName" type="text" class="form-control" placeholder="Enter your first name" required>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="mb-3">
+                        <label class="form-label">Last Name *</label>
+                        <input name="LastName" type="text" class="form-control" placeholder="Enter your last name" required>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email Address *</label>
+                        <input name="Email" type="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Company Name</label>
+                        <input name="CompanyName" type="text" class="form-control" placeholder="Company Name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number *</label>
+                        <input name="PhoneNumber" type="tel" class="form-control" placeholder="Enter your Phone Number" required>
+                    </div>
+                    <div class="mb-3">
+                        <select id="countrySelect" name="Country" class="form-select" required>
+                            <option value="">Loading countries...</option>
+                        </select>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-danger w-100 rounded-pill fw-semibold">
+                        Register & Download
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (TempData["UseCreated"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["UseCreated"] 
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}
+@if (TempData["UserExists"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-warning border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["UserExists"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const select = document.getElementById('countrySelect');
+
+      fetch('https://restcountries.com/v3.1/all?fields=name')
+        .then(response => response.json())
+        .then(data => {
+          // Sort alphabetically by country name
+          const countries = data
+            .map(country => country.name.common)
+            .sort((a, b) => a.localeCompare(b));
+
+          // Clear existing options
+          select.innerHTML = '';
+
+          // Add "Select Country*" as first option
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Select Country*';
+          select.appendChild(defaultOption);
+
+          // Add countries as options
+          countries.forEach(name => {
+            const option = document.createElement('option');
+            option.value = name;
+            option.textContent = name;
+            // Pre-select Nepal
+            if (name === 'Nepal') {
+              option.selected = true;
+            }
+            select.appendChild(option);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching countries:', error);
+          // Fallback to Nepal if load fails
+          select.innerHTML = `
+            <option value="">Select Country*</option>
+            <option value="Nepal" selected>Nepal</option>
+          `;
+        });
+    });
+
+    // Always hide form on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const section = document.getElementById('contactFormSection');
+      if (section) {
+        section.style.display = 'none';
+      }
+    });
+</script>

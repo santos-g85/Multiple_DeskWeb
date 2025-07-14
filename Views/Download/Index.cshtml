@@ -1,0 +1,161 @@
+﻿ @model Multiple_Desk.Models.DTOs.UserRegisterDto
+
+<!-- HERO SECTION -->
+<section class="py-5" style="background-color:#FF9E2C;">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold text-white mb-3">
+            Access Windows PC from Anywhere
+        </h1>
+        <p class="fs-5 fw-normal">
+            <strong>Find the option that’s right for you</strong><br />
+            You can reach us by phone at +977 01-5153449
+        </p>
+    </div>
+</section>
+
+<!-- PRICING HEADING -->
+<div class="text-center mt-5 mb-4">
+    <h2 class="text-danger">Multiple Desk Pricings</h2>
+    <p class="fw-bold text-muted">Best Value For Everyone</p>
+</div>
+
+<!-- PRICING CARDS -->
+<div class="container mb-4">
+    <div class="row g-4 justify-content-center">
+
+        <!-- Free Plan -->
+        <div class="col-md-4 order-2 order-md-1">
+            <div class="card h-100 border-danger border-2 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="fw-bold text-danger">Free</h3>
+                    <p class="fw-bold">Free Forever</p>
+                    <p>Available at no cost</p>
+                    <p>Feature set for single-person companies.</p>
+                    <a asp-controller="User" asp-action="Register" class="btn btn-outline-danger w-100 mb-3" 
+                    data-bs-toggle="modal" data-bs-target="#registerModal">Download Now</a>
+                    <h6 class="mt-3 fw-bold">Features</h6>
+                    <ul class="list-unstyled">
+                        <li>Basic Remote Access</li>
+                        <li>Single Device</li>
+                        <li>Community Support</li>
+                        <li>File Transfer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standard Plan - Featured -->
+        <div class="col-md-4 order-1 order-md-2">
+            <div class="card h-100 border-danger border-2 shadow-lg bg-light">
+                <div class="card-body text-center">
+                    <h3 class="fw-bold text-danger">Standard</h3>
+                    <p class="fw-bold">$19.90 USD</p>
+                    <p>per month (billed annually)</p>
+                    <p>Ideal for small teams and growing businesses.</p>
+                    <a href="#" class="btn btn-danger w-100 mb-3">Order Now</a>
+                    <h6 class="mt-3">Features</h6>
+                    <ul class="list-unstyled">
+                        <li>Unlimited Devices</li>
+                        <li>Priority Support</li>
+                        <li>File Transfer</li>
+                        <li>Session Recording</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Plan -->
+        <div class="col-md-4 order-3 order-3">
+            <div class="card h-100 border-danger border-2 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="fw-bold text-danger">Advanced</h3>
+                    <p class="fw-bold">$39.90 USD</p>
+                    <p>per month (billed annually)</p>
+                    <p>For enterprises needing advanced controls.</p>
+                    <a href="#" class="btn btn-outline-danger w-100 mb-3">Order Now</a>
+                    <h6 class="mt-3">Features</h6>
+                    <ul class="list-unstyled">
+                        <li>All Standard Features</li>
+                        <li>Audit Logs</li>
+                        <li>Dedicated Manager</li>
+                        <li>Custom Integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="registerModalLabel">Register For Free Download</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @await Html.PartialAsync("_UserRegister.cshtml")
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (TempData["StartDownload"] != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.location = '/Download/FileDownload';
+        });
+    </script>
+}
+
+
+@if (TempData["UseCreated"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["UseCreated"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}
+
+@if (TempData["ValidationError"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["ValidationError"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}

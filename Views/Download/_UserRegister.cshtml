@@ -1,0 +1,163 @@
+﻿@model Multiple_Desk.Models.DTOs.UserRegisterDto
+
+
+<form asp-action="Register" asp-controller="User"  method="post">
+                    <!-- First Name -->
+                    <div class="mb-3">
+                        <label class="form-label">First Name *</label>
+                        <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="mb-3">
+                        <label class="form-label">Last Name *</label>
+                          <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email Address *</label>
+                              <input asp-for="Email" class="form-control" placeholder="Email" />
+                               <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Company Name</label>
+                        <input asp-for="Company" class="form-control" placeholder="Company" />
+                            <span asp-validation-for="Company" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number *</label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number " />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                 @*    <div class="mb-3">
+                        <select id="countrySelect" name="Country" class="form-select" required>
+                            <option value="">Loading countries...</option>
+                        </select>
+                    </div> *@
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-danger w-100 rounded-pill fw-semibold">
+                        Register & Download
+                    </button>
+                </form>
+    
+@if (TempData["UseCreated"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["UseCreated"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}
+@if (TempData["UserExists"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-warning border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["UserExists"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        var toastElement = document.getElementById('liveToast');
+        if (toastElement) {
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        }
+        });
+    </script>
+}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const select = document.getElementById('countrySelect');
+
+      fetch('https://restcountries.com/v3.1/all?fields=name')
+        .then(response => response.json())
+        .then(data => {
+          // Sort alphabetically by country name
+          const countries = data
+            .map(country => country.name.common)
+            .sort((a, b) => a.localeCompare(b));
+
+          // Clear existing options
+          select.innerHTML = '';
+
+          // Add "Select Country*" as first option
+          const defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.textContent = 'Select Country*';
+          select.appendChild(defaultOption);
+
+          // Add countries as options
+          countries.forEach(name => {
+            const option = document.createElement('option');
+            option.value = name;
+            option.textContent = name;
+            // Pre-select Nepal
+            if (name === 'Nepal') {
+              option.selected = true;
+            }
+            select.appendChild(option);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching countries:', error);
+          // Fallback to Nepal if load fails
+          select.innerHTML = `
+            <option value="">Select Country*</option>
+            <option value="Nepal" selected>Nepal</option>
+          `;
+        });
+    });
+
+    // Always hide form on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const section = document.getElementById('contactFormSection');
+      if (section) {
+        section.style.display = 'none';
+      }
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if either UserExists or UseCreated has a value in TempData
+            var userExists = '@TempData["UserExists"]';
+            var useCreated = '@TempData["UseCreated"]';
+
+            // Only proceed if either one is set
+            if (userExists || useCreated) {
+                window.location.href = '/Download'; // Redirect to the download page
+            }
+        });
+    </script>
+}

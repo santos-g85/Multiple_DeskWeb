@@ -1,0 +1,160 @@
+﻿<!-- Hero Section -->
+<section class="hero-section text-white py-5 py-lg-6">
+    <div class="container py-5 py-lg-6">
+        <div class="row align-items-center g-5">
+            <!-- Image Column -->
+            <div class="col-lg-6 order-1 order-lg-2">
+                <div class="shadow-sm rounded-3 overflow-hidden" style="max-height: 400px;">
+                    <img src="~/images/freestocks-I_pOqP6kCOI-unsplash.jpg" class="img-fluid d-block w-100" style="max-height: 400px; object-fit: cover;" alt="App Screenshot">
+                </div>
+            </div>
+            <!-- Text Column -->
+            <div class="col-lg-6 text-center text-lg-start order-2 order-lg-1">
+                <h1 class="display-3 fw-bold mb-4 ">Remote Access Made Simple</h1>
+                <p class="lead mb-4 fs-4">
+                    Connect to any computer worldwide in seconds with our secure solution.
+                </p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                    <a class="btn btn-light btn-lg rounded-pill px-4" asp-action="Index" asp-controller="Download">
+                        <i class="fas fa-download me-2"></i>Download Now
+                    </a>
+                    <a asp-action="Index" asp-controller="Download" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                       Start Business Trial
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 mb-3">Powerful Features</h2>
+            <p class="text-muted fs-5">Everything you need for seamless remote access</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <div class=" col-12 col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto">
+                            <i class="fas fa-bolt fs-3"></i>
+                        </div>
+                        <h3 class="h4">Lightning Fast</h3>
+                        <p class="text-muted">60fps remote control with latency under 20ms for smooth operation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto">
+                            <i class="fas fa-lock fs-3"></i>
+                        </div>
+                        <h3 class="h4">Advanced Security</h3>
+                        <p class="text-muted">End-to-end encryption</p>
+                    </div>
+                </div>
+            </div>
+
+      
+
+        </div>
+    </div>
+</section> 
+
+<!-- Screenshot Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <h2 class="fw-bold display-5 mb-4">Intuitive Interface</h2>
+                <p class="lead fs-4 mb-4">Designed for both beginners and professionals.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                        <span>One-click remote access with no complicated setup</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                        <span>Drag-and-drop file transfer between devices</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                        <span>Multi-monitor support with seamless switching</span>
+                    </li>
+                    <li class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                        <span>Session recording for training and documentation</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1">
+                <div class="shadow-sm rounded-3 overflow-hidden border border-2 border-light">
+                    <img src="~/images/multideskui.jpg" class="img-fluid" alt="App Interface">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row g-4 text-center justify-content-center">
+
+           @*  <div class="col-md-3">
+                <div class="display-4 fw-bold text-primary">10M+</div>
+                <p class="text-muted mb-0">Downloads</p>
+            </div>
+            *@
+
+            <div class="col-md-3">
+                <div class="display-4 fw-bold text-danger">100+</div>
+                <p class="text-muted mb-0">Countries</p>
+            </div> 
+
+            <div class="col-md-3">
+                <div class="display-4 fw-bold text-danger">98%</div>
+                <p class="text-muted mb-0">Uptime</p>
+            </div>
+
+            <div class="col-md-3">
+                <div class="display-4 fw-bold text-danger">24/7</div>
+                <p class="text-muted mb-0">Support</p>
+            </div>
+
+        </div>
+    </div>
+</section> 
+
+<!-- CTA Section -->
+<section class="cta-section text-white py-6">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-4 fw-bold mb-4 mt-3">Ready to Get Started?</h2>
+                <p class="lead fs-3 mb-5">Find the best solution for you</p>
+                <a asp-action="Index" asp-controller="Contact" class="btn btn-light btn-md rounded-pill px-5 py-3 fw-bold">
+                    <i class="fas fa-download me-2"></i>get in touch
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #FF9E2C,#F9A123);
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+
+    .cta-section {
+        background: linear-gradient(135deg, #FF9E2C, #F9A123);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    }
+</style>
