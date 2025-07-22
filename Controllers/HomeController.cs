@@ -22,6 +22,17 @@ namespace Multiple_Desk.Controllers
         {
             return View();
         }
+        public IActionResult Term()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ChangeLanguage(string language)
+        {
+            HttpContext.Session.SetString("Culture", language);
+            return RedirectToAction(nameof(Index));
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

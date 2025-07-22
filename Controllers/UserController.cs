@@ -1,10 +1,7 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Win32;
 using Multiple_Desk.Models.DTOs;
 using Multiple_Desk.Services.Interfaces;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Multiple_Desk.Controllers
 {

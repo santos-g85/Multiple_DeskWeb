@@ -15,6 +15,16 @@ public static class DependencyInjection
        services.Configure<MongoDbSettings>(configuration.GetSection("MongoDbSettings"));
         services.AddSingleton<ApplicationDbContext>();
 
+
+        //session
+        services.AddDistributedMemoryCache();
+        services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromMinutes(30); // optional
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
+
         //fluent validation
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
