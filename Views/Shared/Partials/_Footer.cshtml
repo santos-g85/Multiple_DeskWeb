@@ -1,15 +1,17 @@
-﻿@* style="background-color:#4A4B4F;" *@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 <footer class=" footer text-muted" style="background-color:#EEEEEE;min-height:300px; position: relative;">
     <div class="container p-4 py-5">
         <div class="row mt-4">
             <div class="col-6 col-md-2  ">
-                <h6 class="fs-6 custom-text-color fw-bold">MultipleDesk</h6>
+                <h6 class="fs-6 custom-text-color fw-bold">@Localizer["MultipleDesk"]</h6>
                 <ul class="list-unstyled">
                     <li>
-                        <a asp-action="Term" asp-controller="Home" class=" text-black text-decoration-none fs-6">Terms & Conditions</a>
+                        <a asp-action="Term" asp-controller="Home" class=" text-black text-decoration-none fs-6">@Localizer["Terms & Conditions"]</a>
                     </li>
                     <li>
-                        <a href="#" class="text-black text-decoration-none fs-6">Privacy Policy</a>
+                        <a href="#" class="text-black text-decoration-none fs-6">@Localizer["Privacy Policy"]</a>
                     </li>
                 </ul>
             </div>
@@ -17,18 +19,18 @@
 
             <!-- Company -->
             <div class="col-6 col-md-2 ">
-                <h6 class="fs-6 custom-text-color fw-bold">Company</h6>
+                <h6 class="fs-6 custom-text-color fw-bold">@Localizer["Company"]</h6>
                 <ul class="list-unstyled">
-                    <li><a href="https://jooneli.com/" class="text-black text-decoration-none fs-6">About Us</a></li>
-                    <li><a  asp-controller="Contact" asp-action="Index" class="text-black text-decoration-none fs-6">Sales</a></li>
+                    <li><a href="https://jooneli.com/" class="text-black text-decoration-none fs-6">@Localizer["About Us"]</a></li>
+                    <li><a  asp-controller="Contact" asp-action="Index" class="text-black text-decoration-none fs-6">@Localizer["Sales"]</a></li>
                 </ul>
             </div>
 
             <!-- News & Updates -->
             <div class="col-6 col-md-2 ">
-                <h6 class="fs-6 fw-bold custom-text-color">Downloads</h6>
+                <h6 class="fs-6 fw-bold custom-text-color">@Localizer["Downloads"]</h6>
                 <ul class="list-unstyled">
-                    <li><a asp-controller="Download" asp-action="Index" class="text-black text-decoration-none fs-6">For Windows</a></li>
+                    <li><a asp-controller="Download" asp-action="Index" class="text-black text-decoration-none fs-6">@Localizer["For Windows"]</a></li>
                 </ul>
             </div>
 
@@ -48,10 +50,10 @@
                     <p class="mb-0">
                         <span class="text-black">&copy; 2025</span>
                         <span class=" ms-1">
-                            <a href="http://multipledesk.com/" class=" text-decoration-none fw-bold text-black">Multiple Desk</a>
+                            <a href="http://multipledesk.com/" class=" text-decoration-none fw-bold text-black">@Localizer["Multiple Desk"]</a>
                         </span>
                     </p>
-                    <span class="text-muted">product of  <a href="https://jooneli.com/" class="text-black text-decoration-none">Jooneli Group</a></span>
+                    <span >@Localizer["productof"] <a href="https://jooneli.com/" class="text-muted text-decoration-none">@Localizer["Jooneli Group"]</a></span>
                     <div>
                         <a href="https://www.facebook.com/profile.php?id=100063535842460" class="text-black me-3"><i class="bi bi-facebook fs-4"></i></a>
                         <a href="#" class="text-black me-3"><i class="bi bi-linkedin fs-4"></i></a>

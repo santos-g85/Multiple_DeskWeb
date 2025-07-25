@@ -1,26 +1,28 @@
-﻿@model Multiple_Desk.Models.Entities.MessagesModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model Multiple_Desk.Models.Entities.MessagesModel
 
-<section class="py-5  mt-4" style="background-color:#FF9E2C;">
+<section class="py-5 py-lg-6 mt-4" style="background-color:#FF9E2C; height:320px;">
     <!-- Heading -->
     <div class="row justify-content-center" >
         <div class="col-lg-8 text-center">
-            <h1 class="display-4 fw-bold text-white mb-3">
-                Get in Touch Today
+            <h1 class="display-4 fw-bold text-white mb-3 mt-4">
+                @Localizer["Get in Touch Today"]
             </h1>
             <p class="fw-semibold fs-4 mb-2">
-                Talk to our team
+                @Localizer["Talk to our team"]
             </p>
             <p >
-                Need help choosing the right license, placing an order, or upgrading your existing license?<br />
+                @Localizer["Need help choosing the right license, placing an order, or upgrading your existing license"]<br />
 
-                Email: <strong> sales@jooneli.com </strong>
+                @Localizer["Email"]: <strong> sales@jooneli.com </strong>
             </p> 
         </div>
     </div>
 </section>
 
 <p class=" text-center">
-    Reach us at <strong>+977 01-5153449 , 9801464981 </strong>
+    @Localizer["Reach us at"] <strong>@Localizer["+977 01-5153449 , 9801464981 "]</strong>
 </p>
 <section class="py-5  mb-4 bg-light">
     <div class="container">
@@ -30,13 +32,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 border-0 shadow-lg contact-card">
                     <div class="card-body text-white text-center p-4">
-                        <h3 class="h4 mb-3">Call us</h3>
+                        <h3 class="h4 mb-3">@Localizer["Call us"]</h3>
                         <p class="mb-4">
-                            <span class="d-block">Sunday – Friday</span>
-                            <strong>09:00 – 17:00 NPT (GMT+5:45)</strong>
+                            <span class="d-block">@Localizer["Sunday – Friday"]</span>
+                            <strong>@Localizer["09:00 – 17:00 NPT (GMT+5:45)"]</strong>
                         </p>
                         <a href="tel:01-5153449" class="btn btn-outline-light rounded-pill px-4 fw-semibold">
-                            <i class="fas fa-phone me-2"></i> 01-5153449
+                            <i class="fas fa-phone me-2"></i> @Localizer["01-5153449"]
                         </a>
                     </div>
                 </div>
@@ -46,15 +48,15 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 border-0 shadow-lg contact-card">
                     <div class="card-body text-white text-center p-4">
-                        <h3 class="h4 mb-3">Send us a message</h3>
+                        <h3 class="h4 mb-3">@Localizer["Send us a message"]</h3>
                         <p class="mb-4">
-                            <span class="d-block">Leave your queries</span>
-                            We'll respond within one business day
+                            <span class="d-block">@Localizer["Leave your queries"]</span>
+                            @Localizer["We respond within one business day"]
                         </p>
                         <button type="button"
                                 class="btn btn-outline-light rounded-pill px-4 fw-semibold"
                                 onclick="toggleContactForm()">
-                            <i class="fas fa-paper-plane me-2"></i> Write Message
+                            <i class="fas fa-paper-plane me-2"></i> @Localizer["Write Message"]
                         </button>
                     </div>
                 </div>
@@ -69,17 +71,17 @@
         <!-- Social Media Links -->
         <div class="row justify-content-center py-3 mb-5">
             <div class="col-md-6 text-center">
-                <h3 class="fw-bold mb-3">Follow Us</h3>
-                <p class="mb-4">Stay connected through our social media platforms:</p>
+                <h3 class="fw-bold mb-3">@Localizer["Follow Us"]</h3>
+                <p class="mb-4">@Localizer["Stay connected through our social media platforms"]</p>
                 <div class="d-flex justify-content-center">
                     <a href="https://www.facebook.com/profile.php?id=100063535842460" class="btn btn-outline-dark btn-lg mx-2">
-                       <i class="bi bi-facebook"></i> Facebook
+                       <i class="bi bi-facebook"></i> @Localizer["Facebook"]
                     </a>
                     <a href="#" class="btn btn-outline-dark btn-lg mx-2">
-                        <i class="bi bi-twitter"></i> Twitter
+                        <i class="bi bi-twitter"></i> @Localizer["Twitter"]
                     </a>
                     <a href="#" class="btn btn-outline-dark btn-lg mx-2">
-                        <i class="bi bi-linkedin"></i> LinkedIn
+                        <i class="bi bi-linkedin"></i> @Localizer["LinkedIn"]
                     </a>
                 </div>
             </div>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Remote Access Made Simple" xml:space="preserve">
+    <value>जहाँबाट पनि सजिलै पहुँच</value>
+  </data>
+  <data name="Connect to any computer worldwide in seconds with our secure solution." xml:space="preserve">
+    <value>हाम्रो सुरक्षित समाधानको साथ केही सेकेन्डमै विश्वभरको कुनै पनि कम्प्युटरमा जडान गर्नुहोस्।</value>
+  </data>
+  <data name="Download Now" xml:space="preserve">
+    <value>डाउनलोड गर्नुहोस्</value>
+  </data>
+  <data name="Start Business Trial" xml:space="preserve">
+    <value>ब्यापारिक परीक्षण सुरु गर्नुहोस्</value>
+  </data>
+  <data name="Powerful Features" xml:space="preserve">
+    <value>उपयोगी सुविधाहरू</value>
+  </data>
+  <data name="Everything you need for seamless remote access" xml:space="preserve">
+    <value>सहज रिमोट पहुँचको लागि तपाईंलाई चाहिने सबै कुरा</value>
+  </data>
+  <data name="Lightning Fast" xml:space="preserve">
+    <value>अल्ट्रा-फास्ट रेस्पोन्स</value>
+  </data>
+  <data name="Lightning Fast60fps remote control with latency under 20ms for smooth operation." xml:space="preserve">
+    <value>सहज सञ्चालनको लागि २० मिलिसेकेन्ड भन्दा कम विलम्बता भएको लाइटनिङ फास्ट ६०fps रिमोट कन्ट्रोल।</value>
+  </data>
+  <data name="Advanced Security" xml:space="preserve">
+    <value>उन्नत सुरक्षा</value>
+  </data>
+  <data name="End-to-end encryption" xml:space="preserve">
+    <value>एन्ड-टु-एन्ड इन्क्रिप्सन</value>
+  </data>
+  <data name="60fps remote control with latency under 20ms for smooth operation." xml:space="preserve">
+    <value>६० एफपीएस र २० एमएस भन्दा कम लेटेन्सीले अत्यन्तै सहज र द्रुत रिमोट अपरेशन।</value>
+  </data>
+  <data name="File Transfer" xml:space="preserve">
+    <value>फाइल ट्रान्सफर</value>
+  </data>
+  <data name="Fast secure file transfer" xml:space="preserve">
+    <value>विश्वसनीय र सुरक्षित रूपमा फाइल ट्रान्सफर</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>देशहरू</value>
+  </data>
+  <data name="Uptime" xml:space="preserve">
+    <value>अपटाइम</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>सहयोग</value>
+  </data>
+  <data name="Featured On" xml:space="preserve">
+    <value>प्रका्सित गरिएको</value>
+  </data>
+  <data name="Intuitive Interface" xml:space="preserve">
+    <value>सहज इन्टरफेस</value>
+  </data>
+  <data name="Designed for both beginners and professionals" xml:space="preserve">
+    <value>शुरुआती र व्यावसायिक दुवैका लागि डिजाइन गरिएको</value>
+  </data>
+  <data name="One-click remote access with no complicated setup" xml:space="preserve">
+    <value>कुनै जटिल सेटअप बिना एक-क्लिक रिमोट पहुँच</value>
+  </data>
+  <data name="Clipboard synchronization between devices" xml:space="preserve">
+    <value>क्लिपबोर्ड सिङ्क्रोनाइजेसन</value>
+  </data>
+  <data name="Multiple Session access" xml:space="preserve">
+    <value>एकै समयमा धेरै  सेसन सञ्चालन गर्न सकिने</value>
+  </data>
+  <data name="Advanced Security Features" xml:space="preserve">
+    <value>सुरक्षा सुविधाहरू</value>
+  </data>
+  <data name="Our platform utilizes cutting-edge encryption protocols to ensure your data remains protected at all times" xml:space="preserve">
+    <value>हाम्रो प्लेटफर्मले तपाईंको डेटा सधैं सुरक्षित रहोस भनी सुनिश्चित गर्न अत्याधुनिक इन्क्रिप्शन प्रोटोकलहरू प्रयोग गर्दछ।</value>
+  </data>
+  <data name="AES-256-GCM Encryption" xml:space="preserve">
+    <value>AES-256-GCM इन्क्रिप्सन</value>
+  </data>
+  <data name="Secure symmetric encryption for data at rest, ensuring maximum protection against brute-force attacks" xml:space="preserve">
+    <value>ब्रूट-फोर्स आक्रमणहरू विरुद्ध अधिकतम सुरक्षा सुनिश्चित गर्दै, डेटा सुरक्षित  इन्क्रिप्शन</value>
+  </data>
+  <data name="TLS 1.2 Protocol" xml:space="preserve">
+    <value>TLS १.२ प्रोटोकल</value>
+  </data>
+  <data name="State-of-the-art transport security with perfect forward secrecy for all data in transit between clients and servers" xml:space="preserve">
+    <value>ग्राहक र सर्भरहरू बीचको ट्रान्जिटमा रहेका सबै डेटाको लागि गोपनीयता सहितको अत्याधुनिक ट्रान्सपोर्ट सुरक्षा</value>
+  </data>
+  <data name="Zero-Knowledge Architecture" xml:space="preserve">
+    <value>Zero-Knowledge आर्किटेक्चर</value>
+  </data>
+  <data name="End-to-end encrypted storage where only you hold the keys - not even our servers can access your data" xml:space="preserve">
+    <value>एन्ड-टु-एन्ड इन्क्रिप्टेड, तपाईंको डाटा, तपाईंको नियन्त्रण — सुरक्षित स्टोरेज जहाँ तपाईंबाहेक कसैले हेर्न सक्दैन</value>
+  </data>
+  <data name="Let's Connect" xml:space="preserve">
+    <value>सम्पर्क गरौं</value>
+  </data>
+  <data name="We're here to help you find the right solution" xml:space="preserve">
+    <value>हामी तपाईंलाई उपयुक्त समाधान खोज्न सहायता गर्छौं।</value>
+  </data>
+  <data name="get in touch" xml:space="preserve">
+    <value>सम्पर्क गर्नुहोस</value>
+  </data>
+</root>

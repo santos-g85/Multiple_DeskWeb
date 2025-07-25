@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@model List<Multiple_Desk.Models.Entities.EventsModel>
+
+<section class="py-5 py-lg-6 bg-light">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="text-center">
+                <h2 class="display-4 fw-bold mt-3 custom-text-color">@Localizer["Recent Events"]</h2>
+                <p class="lead mb-5 text-muted">@Localizer["Keep up with the latest updates"]</p>
+
+                <!-- Carousel Wrapper -->
+                <div class="carousel-wrapper overflow-hidden position-relative" style="width: 1200px; margin: auto;">
+                    <div class="carousel-track d-flex" id="eventCarouselTrack">
+                        <!-- Event Card Template -->
+                       
+                       
+                            <div class="event-card">
+                                <div class="position-relative z-5 mb-n4" style="margin-bottom: -40px;height: 200px;">
+                                    <img src="~/images/freestocks-I_pOqP6kCOI-unsplash.jpg" class="card-img-top " alt="Event" style="max-height: 200px; object-fit: cover; ">
+                                </div>
+                                <div class="card h-50 w-75 eventcard border-0 shadow-sm p-4 transition-transform hover:scale-105">
+                                    <div class="card-body text-center">
+                                    <h3 class="h4 mb-3 text-dark">@Localizer["Vulnerability Assessment and Penetration Testing"]</h3>
+                                </div>
+                                </div>
+                            </div>
+
+                        <div class="event-card">
+                            <div class="position-relative z-5 mb-n4" style="margin-bottom: -40px;height: 200px;">
+                                <img src="~/images/pexels-luis-gomes-166706-546819.jpg" class="card-img-top " alt="Event" style="max-height: 200px; object-fit: cover; ">
+                            </div>
+                            <div class="card h-50 w-75 eventcard border-0 shadow-sm p-4 transition-transform hover:scale-105">
+                                <div class="card-body text-center">
+                                    <h3 class="h4 mb-3 text-dark">@Localizer["Beta versions gone through alpha testing in-house and externally"]</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="position-relative z-5 mb-n4" style="margin-bottom: -40px;height: 200px;">
+                                <img src="~/images/multideskui.jpg" class="card-img-top " alt="Event" style="max-height: 200px; object-fit: cover; ">
+                            </div>
+                            <div class="card h-50 w-75 eventcard border-0 shadow-sm p-4 transition-transform hover:scale-105">
+                                <div class="card-body text-center">
+                                    <h3 class="h4 mb-3 text-dark">@Localizer["Beta versions released to the public"]</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

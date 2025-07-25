@@ -1,0 +1,25 @@
+﻿
+.transition-transform {
+    transition: transform 0.5s ease;
+}
+
+.eventcard:hover {
+    transform: scale(1.05);
+}
+
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    transition: transform 0.5s ease-in-out;
+}
+
+.event-card {
+    width: 400px;
+    flex-shrink: 0;
+    padding: 0 10px;
+}
+
+

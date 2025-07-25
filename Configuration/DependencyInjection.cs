@@ -1,9 +1,12 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Multiple_Desk.Repository.Implementation;
 using Multiple_Desk.Repository.Interface;
 using Multiple_Desk.Services.Implementation;
 using Multiple_Desk.Services.Interfaces;
 using Multiple_Desk.Settings;
+using System.Globalization;
 using System.Reflection;
 
 public static class DependencyInjection
@@ -14,7 +17,6 @@ public static class DependencyInjection
         //dbcontext
        services.Configure<MongoDbSettings>(configuration.GetSection("MongoDbSettings"));
         services.AddSingleton<ApplicationDbContext>();
-
 
         //session
         services.AddDistributedMemoryCache();
@@ -33,6 +35,7 @@ public static class DependencyInjection
         services.AddScoped<IMessageRepository, MessageRepository>();
         
         //services
+        services.AddScoped<CultureProviderService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IMessageService, MessageService>();
         services.AddScoped<FileService>();

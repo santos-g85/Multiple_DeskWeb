@@ -1,4 +1,9 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization;
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    var events = ViewData["Events"] as List<Multiple_Desk.Models.Entities.EventsModel>;
+}
+
 <!-- Hero Section -->
 <section class="hero-section text-white py-5 py-lg-6">
     <div class="container py-5 py-lg-6">
@@ -6,16 +11,16 @@
 
             <!-- Text Column -->
             <div class="text-center">
-                <h1 class="display-3 fw-bold mb-4 ">Remote Access Made Simple</h1>
+                <h1 class="display-3 fw-bold mb-4 ">@Localizer["Remote Access Made Simple"]</h1>
                 <p class="lead mb-4 fs-4">
-                    Connect to any computer worldwide in seconds with our secure solution.
+                    @Localizer["Connect to any computer worldwide in seconds with our secure solution."]
                 </p>
                 <div class="d-flex flex-wrap gap-3 justify-content-center text-center">
                     <a class="btn btn-light btn-lg rounded-pill px-4" asp-action="Index" asp-controller="Download">
-                        <i class="fas fa-download me-2"></i>Download Now
+                        <i class="fas fa-download me-2"></i>@Localizer["Download Now"]
                     </a>
                     <a asp-action="Index" asp-controller="Download" class="btn btn-outline-light btn-lg rounded-pill px-4">
-                       Start Business Trial
+                      @Localizer["Start Business Trial"]
                     </a> 
                 </div>
             </div>
@@ -25,11 +30,11 @@
 </section>
 
 <!-- Features Section -->
-<section class="py-3 my-5">
+<section class="py-5 py-lg-6">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold display-5 mb-3 custom-text-color">Powerful Features</h2>
-            <p class="text-muted fs-5">Everything you need for seamless remote access</p>
+            <h2 class="fw-bold display-5 mb-3 custom-text-color">@Localizer["Powerful Features"]</h2>
+            <p class="text-muted fs-5">@Localizer["Everything you need for seamless remote access"]</p>
         </div>
 
         <div class="row g-4 justify-content-center">
@@ -40,8 +45,8 @@
                         <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto">
                             <i class="fas fa-bolt fs-3"></i>
                         </div>
-                        <h3 class="h4 custom-text-color">Lightning Fast</h3>
-                        <p class="text-muted">60fps remote control with latency under 20ms for smooth operation.</p>
+                        <h3 class="h4 custom-text-color">@Localizer["Lightning Fast"]</h3>
+                        <p class="text-muted">@Localizer["60fps remote control with latency under 20ms for smooth operation."]</p>
                     </div>
                 </div>
             </div>
@@ -52,8 +57,8 @@
                         <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto">
                             <i class="fas fa-lock fs-3"></i>
                         </div>
-                        <h3 class="h4 custom-text-color">Advanced Security</h3>
-                        <p class="text-muted">End-to-end encryption</p>
+                        <h3 class="h4 custom-text-color">@Localizer["Advanced Security"]</h3>
+                        <p class="text-muted">@Localizer["End-to-end encryption"]</p>
                     </div>
                 </div>
             </div>
@@ -64,8 +69,8 @@
                         <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-circle mb-3 mx-auto">
                             <i class="fas fa-lock fs-3"></i>
                         </div>
-                        <h3 class="h4 custom-text-color">File Transfer</h3>
-                        <p class="text-muted">Fast secure file transfer</p>
+                        <h3 class="h4 custom-text-color">@Localizer["File Transfer"]</h3>
+                        <p class="text-muted">@Localizer["Fast secure file transfer"]</p>
                     </div>
                 </div>
             </div>
@@ -75,53 +80,55 @@
 </section> 
 
 <!-- Stats Section -->
-<section class="mb-5 mt-5 py-3" >
+<section class="py-5 py-lg-6">
     <div class="container">
         <div class="row g-4 text-center justify-content-center">
 
 
             <div class="col-md-3">
                 <div class="display-4 fw-bold custom-text-color">100+</div>
-                <p class="text-muted mb-0">Countries</p>
+                <p class="text-muted mb-0">@Localizer["Countries"]</p>
             </div>
 
             <div class="col-md-3">
                 <div class="display-4 fw-bold custom-text-color">98%</div>
-                <p class="text-muted mb-0">Uptime</p>
+                <p class="text-muted mb-0">@Localizer["Uptime"]</p>
             </div>
 
             <div class="col-md-3">
-                <div class="display-4 fw-bold custom-text-color">24/7</div>
-                <p class="text-muted mb-0">Support</p>
+                <div class="display-4 fw-bold custom-text-color">@Localizer["24/7"]</div>
+                <p class="text-muted mb-0">@Localizer["Support"]</p>
             </div>
 
         </div>
     </div>
 </section>
 
-<section class="mt-5  py-3">
+@await Html.PartialAsync("_homecarousel.cshtml")
+
+<section class="py-5 py-lg-6">
     <div class="container">
         <div class="row align-items-center g-5">
             <!-- Text -->
             <div class="col-lg-6 order-lg-1 order-2">
-                <h2 class="fw-bold display-5 mb-4 custom-text-color">Intuitive Interface</h2>
-                <p class="lead fs-4 mb-4">Designed for both beginners and professionals.</p>
+                <h2 class="fw-bold display-5 mb-4 custom-text-color">@Localizer["Intuitive Interface"]</h2>
+                <p class="lead fs-4 mb-4">@Localizer["Designed for both beginners and professionals"]</p>
                 <ul class="list-unstyled">
                     <li class="mb-3 d-flex align-items-start">
                         <i class="bi bi-check-circle-fill text-primary me-3"></i>
-                        <span>One-click remote access with no complicated setup</span>
+                        <span>@Localizer["One-click remote access with no complicated setup"]</span>
                     </li>
                     <li class="mb-3 d-flex align-items-start">
                         <i class="bi bi-check-circle-fill text-primary me-3"></i>
-                        <span>Clipboard synchronization between devices</span>
+                        <span>@Localizer["Clipboard synchronization between devices"]</span>
                     </li>
                     <li class="mb-3 d-flex align-items-start">
                         <i class="bi bi-check-circle-fill text-primary me-3"></i>
-                        <span>Multiple Session access</span>
+                        <span>@Localizer["Multiple Session access"]</span>
                     </li>
                     <li class="d-flex align-items-start">
                         <i class="bi bi-check-circle-fill text-primary me-3"></i>
-                        <span>End-to-end Encryption</span>
+                        <span>@Localizer["End-to-end encryption"]</span>
                     </li>
                 </ul>
             </div>
@@ -135,20 +142,24 @@
     </div>
 </section>
 
+
+@await Html.PartialAsync("_recentevents.cshtml", events)
+
+
 <!-- Technical Features Section -->
 <section class="py-6 mt-4">
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="text-center">
-                <h2 class="display-4 fw-bold mt-3 custom-text-color">Advanced Security Features</h2>
-                <p class="lead mb-5">Our platform utilizes cutting-edge encryption protocols to ensure your data remains protected at all times</p>
+                <h2 class="display-4 fw-bold mt-3 custom-text-color">@Localizer["Advanced Security Features"]</h2>
+                <p class="lead mb-5">@Localizer["Our platform utilizes cutting-edge encryption protocols to ensure your data remains protected at all times"]</p>
 
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
                             <div class="card-body">
-                                <h3 class="h4 mb-3">AES-256-GCM Encryption</h3>
-                                <p class="text-muted">Secure symmetric encryption for data at rest, ensuring maximum protection against brute-force attacks.</p>
+                                <h3 class="h4 mb-3">@Localizer["AES-256-GCM Encryption"]</h3>
+                                <p class="text-muted">@Localizer["Secure symmetric encryption for data at rest, ensuring maximum protection against brute-force attacks"]</p>
                             </div>
                         </div>
                     </div>
@@ -156,8 +167,8 @@
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
                             <div class="card-body">
-                                <h3 class="h4 mb-3">TLS 1.2 Protocol</h3>
-                                <p class="text-muted">State-of-the-art transport security with perfect forward secrecy for all data in transit between clients and servers.</p>
+                                <h3 class="h4 mb-3">@Localizer["TLS 1.2 Protocol"]</h3>
+                                <p class="text-muted">@Localizer["State-of-the-art transport security with perfect forward secrecy for all data in transit between clients and servers"]</p>
                             </div>
                         </div>
                     </div>
@@ -165,8 +176,8 @@
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow-sm p-4">
                             <div class="card-body">
-                                <h3 class="h4 mb-3">Zero-Knowledge Architecture</h3>
-                                <p class="text-muted">End-to-end encrypted storage where only you hold the keys - not even our servers can access your data.</p>
+                                <h3 class="h4 mb-3">@Localizer["Zero-Knowledge Architecture"]</h3>
+                                <p class="text-muted">@Localizer["End-to-end encrypted storage where only you hold the keys - not even our servers can access your data"]</p>
                             </div>
                         </div>
                     </div>
@@ -176,15 +187,16 @@
     </div>
 </section>
 
+
 <!-- CTA Section -->
 <section class="cta-section text-white py-6 mt-5">
     <div class="container py-4">
         <div class="row justify-content-center py-4">
             <div class="col-lg-8 text-center">
-                <h2 class="display-4 fw-bold mt-3">Let's Connect</h2>
-                <p class="lead fs-3">We're here to help you find the right solution.</p>
+                <h2 class="display-4 fw-bold mt-3">@Localizer["Let's Connect"]</h2>
+                <p class="lead fs-3">@Localizer["We're here to help you find the right solution"]</p>
                 <a asp-action="Index" asp-controller="Contact" class="btn btn-light btn-md rounded-pill px-5 py-3 fw-bold">
-                    get in touch
+                    @Localizer["get in touch"]
                 </a>
             </div>
         </div>

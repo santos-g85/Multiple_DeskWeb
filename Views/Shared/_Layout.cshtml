@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var currentCulture = System.Globalization.CultureInfo.CurrentUICulture.Name;
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+}
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,6 +16,7 @@
     <link rel="stylesheet" href="~/css/pricing.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/contact.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/events.css" asp-append-version="true" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -59,11 +66,9 @@
                    asp-action="Index">
                     <img src="~/images/logowithtext.png"
                          alt="MultipleDesk Logo"
-                         style="height: 40px;"
-                         class="align-middle">
-                    @* <span class="fw-semibold fs-4 custom-text-color">MultipleDesk</span> *@
-                </a>
-
+                         style="height: 50px;"
+                         class="align-middle"> 
+                </a> 
                 <!-- Toggler -->
                 <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" >
                     <i class="bi bi-list text-white"></i>
@@ -74,10 +79,11 @@
                     <ul class="navbar-nav mb-2 mb-lg-0 align-items-center gap-lg-2">
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Contact" asp-action="Index">
-                                <i class="bi bi-bag"></i> Sales
+                            <a class="nav-link text-white fs-5" asp-area="" asp-controller="Contact" asp-action="Index">
+                                <i class="bi bi-bag"></i> @Localizer["Sales"]
                             </a>
                         </li>
+
                         @* <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Pricing" asp-action="Index">
                                 <i class="bi bi-tags"></i> Pricing
@@ -85,16 +91,16 @@
                         </li>  *@
                
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Download" asp-action="Index">
-                                <i class="bi bi-download"></i> Download
+                            <a class="nav-link text-white fs-5" asp-area="" asp-controller="Download" asp-action="Index">
+                                <i class="bi bi-download"></i> @Localizer["Download"]
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <form method="post" action="@Url.Action("ChangeLanguage", "Home")" class="d-inline">
+                            <form asp-controller="Home" asp-action="ChangeLanguage" method="post" class="d-inline" asp-route-returnUrl="@returnUrl">
                                 <select name="language" class="form-select form-select-sm" onchange="this.form.submit()">
-                                    <option value="en-US" selected="@(Context.Session.GetString("Culture") == "en-US" ? "selected" : null)">English</option>
-                                    <option value="np-NP" selected="@(Context.Session.GetString("Culture") == "np-NP" ? "selected" : null)">Nepali</option>
+                                    <option value="en-US" selected="@(currentCulture == "en-US" ? "selected" : null)">English</option>
+                                    <option value="ne-NP" selected="@(currentCulture == "ne-NP" ? "selected" : null)">नेपाली</option>
                                 </select>
                             </form>
                         </li>
@@ -110,39 +116,42 @@
             <a asp-action="Index" asp-controller="Home" class="text-decoration-none text-black">
             <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mobileMenuLabel">
                 <img src="~/images/multipledesklogo.png" alt="MultipleDesk Logo" style="height: 30px;">
-                MultipleDesk
+                @Localizer["MultipleDesk"]
             </h5>
             </a>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav">
+
               @*  <li class="nav-item">
                     <a class="nav-link" asp-area="" asp-controller="Pricing" asp-action="Index">
                         <i class="bi bi-tags"></i> Pricing
                     </a>
                 </li>  *@
+
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
-                        <i class="bi bi-bag"></i> Sales
+                    <a class="nav-link fs-5" asp-area="" asp-controller="Contact" asp-action="Index">
+                        <i class="bi bi-bag"></i> @Localizer["Sales"]
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Download" asp-action="Index">
-                        <i class="bi bi-download"></i> Download
+                    <a class="nav-link fs-5" asp-area="" asp-controller="Download" asp-action="Index">
+                        <i class="bi bi-download"></i>@Localizer["Download"]
                     </a>
                 </li>
                 <li class="nav-item">
-                    <form method="post" action="@Url.Action("ChangeLanguage", "Home")" class="d-inline">
-                        <select name="language" class="form-select form-select-sm" onchange="this.form.submit()">
-                            <option value="en-US" selected="@(Context.Session.GetString("Culture") == "en-US" ? "selected" : null)">English</option>
-                            <option value="np-NP" selected="@(Context.Session.GetString("Culture") == "np-NP" ? "selected" : null)">Nepali</option>
+                    <form asp-controller="Home" asp-action="ChangeLanguage" method="post" class="d-inline" asp-route-returnUrl="@returnUrl">
+                        <select name="language" class="form-select form-select-sm" style="max-width:100px;" onchange="this.form.submit()">
+                            <option value="en-US" selected="@(currentCulture == "en-US" ? "selected" : null)">English</option>
+                            <option value="ne-NP" selected="@(currentCulture == "ne-NP" ? "selected" : null)">नेपाली</option>
                         </select>
                     </form>
                 </li>
             </ul>
         </div>
     </div>
+
 
     <main role="main">
             @RenderBody()
@@ -156,6 +165,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/pricing.js" asp-append-version="true"></script>
     <script src="~/js/contact.js" asp-append-version="true"></script>
+    <script src="~/js/events.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

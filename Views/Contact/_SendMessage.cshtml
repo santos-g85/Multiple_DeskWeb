@@ -1,4 +1,7 @@
 ﻿@model Multiple_Desk.Models.Entities.MessagesModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 
 <section class="py-5" id="contactFormSection" style="display:none;">
     <div class="container w-auto" style="max-width:80%;">
@@ -46,7 +49,7 @@
 
             <!-- Submit Button -->
             <button type="submit" class="btn btn-outline-danger  rounded-pill px-4">
-                Send Message
+                @Localizer["Send Message"]
             </button>
         </form>
     </div>

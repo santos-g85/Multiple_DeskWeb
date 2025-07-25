@@ -1,4 +1,16 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('nav.navbar');
 
-// Write your JavaScript code.
+    function toggleNavbarBg() {
+            if (window.scrollY >=300) {
+        navbar.classList.add('navbar-scroll');
+            } else {
+        navbar.classList.remove('navbar-scroll');
+            }
+    }
+
+    window.addEventListener('scroll', toggleNavbarBg);
+
+    // Initialize on page load
+    toggleNavbarBg();
+});

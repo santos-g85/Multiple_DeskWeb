@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\Featured\" />
     <Folder Include="wwwroot\Update\" />
   </ItemGroup>
 
